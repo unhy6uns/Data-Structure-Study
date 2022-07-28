@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - BJ2270",
+            "request": "launch",
+            "mainClass": "BJ2270",
+            "projectName": "data structure_83f6f2bb"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - prob1",
             "request": "launch",
             "mainClass": "ch02.prob1",
