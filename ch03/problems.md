@@ -1,6 +1,6 @@
 # prob.1
 ## 1) true
-## 2) true
+## 2) false
 ## 3) true
 ## 4) true
 ## 5) true
