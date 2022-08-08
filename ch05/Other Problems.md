@@ -104,5 +104,119 @@ public void printInterval(int i, int j){
 ## 재귀를 사용하지 않는 알고리즘
 ```
 public int numItems() {
-    
+    Node now = head;
+    int count = 0;
+    while(now.item!=null){
+        count++;
+        now = now.next;
+    }
+    return count;
 }
+```
+## 재귀를 사용하는 알고리즘
+호출하고 나면 원래 리스트가 빈 리스트가 되는데,,
+```
+public int numItems() {
+    remove(0);
+    if(head.item == null){
+        return 0;
+    } else {
+        return 1 + numItems();
+    }
+}
+```
+다른 메소드도 써도 되나?
+```
+public int numItems() {
+    Node tmp = get(0);
+    remove(0);
+    if(isEmpty()){
+        add(0,tmp);
+        return 0;
+    } else {
+        int count = 1 + numItems();
+        add(0,tmp);
+        return count;
+    }
+}
+```
+# Prob.7
+```
+public void remove(int index, int k) {
+    if (index >= 0 && index <= numItems - 1) {
+        Node prevNode = getNode(index - 1);
+        prevNode.next = prevnode.next.next;
+        numItems--;
+        if(index <= numItems - 1)
+            remove(int index, int k-1);
+    } else { /* 에러 처리 */}
+}
+```
+# Prob.8
+```
+public void add(int x){
+    BidirectionalNode itr = head.next;
+    while(x > itr.item){
+        itr = itr.next;
+    }
+    BidirectionalNode newNode = new BidirectionalNode(x,itr.prev,itr);
+    itr.prev = newNode;
+    itr.prev.next = newNode;
+}
+```
+# Prob.9
+```
+public void concat(LinkedList list1, LinkedList list2) {
+    Node lastOf1;
+    Node firstOf2;
+    lastOf1 = list1.getNode(list1.len()-1);
+    firstOf2 = list2.getNode(0);
+    lastOf1.next = firstOf2;
+}
+```
+# Prob.10 
+```
+public static boolean isSameList(Node<E> node1, Node<E> node2){
+    Node itr = node1;
+    while(itr.item!=null){
+        if(itr==node2)
+            return true;
+        else
+            itr = itr.next;
+    }
+    itr = node2;
+    while(itr.item!=null){
+        if(itr==node1)
+            return true;
+        else
+            itr = itr.next;
+    }
+    return false;
+}
+```
+# Prob.11
+```
+public int lastIndexOf(Integer x){
+    int i = 0;
+    for (i = numItems - 1; i>=0; i--){
+        if(((Comparable)item[i]).compareTo(x) == 0)
+            return i;
+    }
+    return NOT_FOUND;
+}
+```
+# Prob.12
+```
+public int lastIndexOf(E x){
+    Node<E> currNode = head;
+    int i;
+    int index=0;
+    for (i=0; i<numItems>; i++){
+        currNode = currNode.next;
+        if(((Comparable)(currNode.item)).compareTo(x) == 0){
+            index = i;
+        }
+    }
+    return index;
+}
+```
