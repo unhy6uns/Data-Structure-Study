@@ -5,10 +5,12 @@
 단점으로는 더미헤드 만큼의 메모리를 추가로 사용해야 한다는 점이 있다.
 
 # Prob.2
+'''
 public boolean contains(E x){
     if(indexOf(x) == NOT_FOUND) return false;
     else return true;
 }
+'''
 
 # Prob.3
 ## void add(int index, Integer x)
