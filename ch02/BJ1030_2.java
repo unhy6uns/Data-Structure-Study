@@ -109,8 +109,5 @@ public class BJ1030_2 {
         bw.write(answer);
         bw.flush();
         bw.close();
-
-
-
     }
 }
