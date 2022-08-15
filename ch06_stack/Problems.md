@@ -94,6 +94,7 @@ public class Main {
         // indicator의 값이 true이면 주어진 집합의 원소가 맞고, false이면 아니다.
     }
 }
+// $가 없는 경우 체크 안함
 ```
 # Prob.5
 ```
@@ -108,7 +109,7 @@ public void printAll(){
 public void printAll() {
     Node<E> currNode = new Node<>();
     currNode = topNode;
-    while(currNode.next!=null){
+    while(currNode!=null){
         System.out.println(currNode.item);
         currNode = currNode.next;
     }
@@ -118,7 +119,7 @@ public void printAll() {
 코드 6-6 InheritedStack
 ```
 public void printAll() {
-    for(int i=0; i<list.len(); i++){
+    for(int i=len()-1; i>=0; i++){
         System.out.println(get(i));
     }
 }
@@ -126,7 +127,7 @@ public void printAll() {
 코드 6-7 ADT 리스트를 이용한 ListStack
 ```
 public void printAll() {
-    for(int i=0; i<list.len(); i++){
+    for(int i=list.len()-1; i>=0; i++){
         System.out.println(list.get(i));
     }
 }

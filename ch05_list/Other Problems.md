@@ -106,7 +106,7 @@ public void printInterval(int i, int j){
 public int numItems() {
     Node now = head;
     int count = 0;
-    while(now.item!=null){
+    while(now.next!=null){
         count++;
         now = now.next;
     }
@@ -147,7 +147,7 @@ public void remove(int index, int k) {
         Node prevNode = getNode(index - 1);
         prevNode.next = prevnode.next.next;
         numItems--;
-        if(index <= numItems - 1)
+        if(index <= numItems - 1 && k > 0)
             remove(int index, int k-1);
     } else { /* 에러 처리 */}
 }
@@ -160,8 +160,8 @@ public void add(int x){
         itr = itr.next;
     }
     BidirectionalNode newNode = new BidirectionalNode(x,itr.prev,itr);
-    itr.prev = newNode;
     itr.prev.next = newNode;
+    itr.prev = newNode;
 }
 ```
 # Prob.9
@@ -177,15 +177,15 @@ public void concat(LinkedList list1, LinkedList list2) {
 # Prob.10 
 ```
 public static boolean isSameList(Node<E> node1, Node<E> node2){
-    Node itr = node1;
-    while(itr.item!=null){
+    Node<E> itr = node1;
+    while(itr.next!=null){
         if(itr==node2)
             return true;
         else
             itr = itr.next;
     }
     itr = node2;
-    while(itr.item!=null){
+    while(itr.next!=null){
         if(itr==node1)
             return true;
         else
