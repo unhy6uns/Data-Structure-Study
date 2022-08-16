@@ -1,10 +1,7 @@
 # Prob.1
 ```
 public boolean isEmpty() {
-    if(head.next.item == null)
-        return true;
-    else
-        return false;
+    return (head.next.item == null);
 }
 ```
 ```
@@ -22,6 +19,7 @@ public Object dequeue() {
         Object tmp = head.next.item;
         head.next = head.next.next;
         head.next.prev = head;
+        return tmp;
     }
 }
 ```
@@ -63,6 +61,7 @@ public boolean isEmpty(){
 ```
 ```
 public void dequeueAll() {
+    tail = tail.next;
     tail.next = tail;
 }
 ```
@@ -131,8 +130,8 @@ public void printAll(){
     if(numItems == 0)
         return;
     int l = queue.length;
-    while(i=0;i<numItems;i++){
-        System.out.println((front+i)%l);
+    for(i=0;i<numItems;i++){
+        System.out.println(queue[(front+i)%l]);
     }
 }
 ```
@@ -167,16 +166,18 @@ public void printAll(){
     }
 }
 ```
+Queue 입장에서 보면 i번째 원소가 queue의 front가 아니다?
+근데 remove(0)에서 쉬프트를 해줘서 괜찮다. -박종현
 # Prob.8
 ```
 public void copyLinkedQueue(LinkedQueue<E> b){
     LinkedQueue<E> temp;
-    clear();
+    dequeueAll();
     while(!b.isEmpty()){
         temp.enqueue(b.dequeue);
     }
     E tempItem;
-    while(!queue.isEmpty()){
+    while(!temp.isEmpty()){
         tempItem = temp.dequeue();
         enqueue(tempItem);
         b.enqueue(tempItem);
@@ -189,12 +190,13 @@ public void enqueue(E newItem) {
     if(isFull(){
         E largeQueue[] = (E[]) new Object[2*numItems];
         int index = front;
-        while(index == tail){
+        while(i < numItems){
             largeQueue[i] = queue[(front+i) % queue.length];
             ++i;
         }
         front = 0;
         tail = numItems-1;
+        queue = largeQueue;
     }
     tail = (tail+1) % queue.length;
     queue[tail] = newItem;
