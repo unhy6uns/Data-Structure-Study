@@ -38,7 +38,7 @@ Theta(n^2)
 Why..?
 ## 3) 삽입 정렬
 Theta(n^2)  
-proof.
+proof.  
 $E[T(n)] = \displaystyle \sum_{k=1}^n \frac{1}{n} k + E[T(n-1)]$  
 $= \Theta(n) + E[T(n-1)]$  
 
